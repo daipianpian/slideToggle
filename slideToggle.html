@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .box{width: 300px; border-bottom: 1px solid #ccc; background: skyblue;}
+    .box:last-child{border: none;}
+    .box h3{margin: 0; padding: 10px 0; overflow: hidden; zoom: 1;}
+    .box h3 button{float: right;}
+    .box .content{background: lightgreen;}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h3>title1 <button>[收起]</button></h3>
+    <div class="content">
+      <div>内容1-1</div>
+      <div>内容1-2</div>
+      <div>内容1-3</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h3>title2 <button>[收起]</button></h3>
+    <div class="content">
+      <div>内容2-1</div>
+      <div>内容2-2</div>
+      <div>内容2-3</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h3>title3 <button>[收起]</button></h3>
+    <div class="content">
+      <div>内容3-1</div>
+      <div>内容3-2</div>
+      <div>内容3-3</div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="http://daipianpian.com/common/js/jquery-3.1.1.min.js"></script>
+  </head>
+  <script type="text/javascript">
+  // 收缩隐藏效果
+  $(document).ready(function(){
+      var buttonGroup = $('.box > h3 > button');
+      buttonGroup.each(function() {
+          $(this).click(function(){
+              $(this).parent('h3').next().slideToggle();
+              var btnText = $(this).text();
+              if(btnText == '[展开]') {
+                  $(this).text('[收起]');
+              } else {
+                  $(this).text('[展开]');
+              }
+          });
+      });
+  });
+  </script>
+</body>
+</html>
